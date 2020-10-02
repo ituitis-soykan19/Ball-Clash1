@@ -9,9 +9,13 @@ public class PauseMenu : MonoBehaviour
     public GameObject pauseMenu;
     public GameObject ongameobjects;
     public Text pausetable;
+
+    public Vector3 PauseTableInitialPosition;
+
     public void Start()
     {
         pauseMenu.SetActive(false);
+        PauseTableInitialPosition = pausetable.GetComponent<RectTransform>().anchoredPosition; 
     }
     public void OpenPauseMenu()
     {
@@ -24,6 +28,7 @@ public class PauseMenu : MonoBehaviour
     {
         pauseMenu.SetActive(false);
         ongameobjects.SetActive(true);
+        pausetable.GetComponent<RectTransform>().anchoredPosition = PauseTableInitialPosition;
     }
     public void Back2Menu()
     {
